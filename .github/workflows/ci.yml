@@ -11,7 +11,9 @@ jobs:
   # Задача 1: Тестирование и линтинг кода
   test-and-lint:
     runs-on: ubuntu-latest # Запускать на виртуальной машине с Ubuntu
-
+    strategy:
+      matrix:
+        python-version: ['3.9', '3.10', '3.11']
     steps:
       # Шаг 1.1: Клонирование кода из репозитория на Runner
       - name: Checkout repository code
@@ -21,7 +23,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: ${{matrix.python-version}}
 
       # Шаг 1.3: Установка зависимостей
       - name: Install dependencies
