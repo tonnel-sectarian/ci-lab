@@ -40,7 +40,17 @@ jobs:
       # Шаг 1.5: Запуск автоматических тестов
       - name: Run unit tests
         run: |
-          pytest test_main.py
+          pytest test_main.pyi
+      
+      #Шаг 1.6: Установка анализатора bandit
+      - name: Install bandit
+        run: |
+          pip install bandit
+
+      #Шаг 1.7: Запуск бандита))
+      - name: Запуск бандита
+        run: |
+          bandit -r .
 
   # Задача 2: Пробная сборка Docker-образа (выполняется ПОСЛЕ успешных тестов)
   build-docker:
