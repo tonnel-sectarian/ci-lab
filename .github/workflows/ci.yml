@@ -81,4 +81,4 @@ jobs:
         with:
          context: .
          push: true
-         tags:  ${{secrets.DOCKERHUB_USERNAME }}/ci-lab:latest, ${{ github.sha }} 
+         tags:  ${{secrets.DOCKERHUB_USERNAME }}/ci-lab:latest, ${{secrets.DOCKERHUB_USERNAME }}/ci-lab:${{ github.sha }} 
